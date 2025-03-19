@@ -16,6 +16,6 @@ add_executable(app
 
 target_link_libraries(app
     PRIVATE glfw
-    PRIVATE ${OPENGL_opengl_LIBRARY}
+    PRIVATE ${OPENGL_gl_LIBRARY}
     PRIVATE ${OPENGL_glu_LIBRARY}
 )
