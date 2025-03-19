@@ -15,8 +15,12 @@ add_executable(app
     src/main.cpp
 )
 
+target_include_directories(app
+    PRIVATE lib/freeglut/include
+)
+
 target_link_libraries(app
     PRIVATE freeglut_static
-    PRIVATE ${OPENGL_opengl_LIBRARY}
+    PRIVATE ${OPENGL_gl_LIBRARY}
     PRIVATE ${OPENGL_glu_LIBRARY}
 )
