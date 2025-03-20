@@ -7,14 +7,25 @@ project(app)
 find_package(OpenGL REQUIRED)
 
 add_subdirectory(lib/glfw3)
-set(GLAD "${GLFW_SOURCE_DIR}/deps/glad/glad.h"
-         "${GLFW_SOURCE_DIR}/deps/glad.c")
+add_subdirectory(lib/glm)
+add_subdirectory(lib/SOIL2)
+add_subdirectory(lib/glew/build/cmake)
 
 add_executable(app
     src/main.cpp
 )
 
+target_include_directories(app
+    PRIVATE lib
+    PRIVATE lib/glfw/include
+    PRIVATE lib/SOIL2/src/SOIL2
+    PRIVATE lib/glew/include
+)
+
 target_link_libraries(app
-    PRIVATE glfw
     PRIVATE ${OPENGL_LIBRARIES}
+    PRIVATE glfw
+    PRIVATE glew_s
+    PRIVATE glm
+    PRIVATE soil2
 )

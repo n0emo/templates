@@ -1,3 +1,4 @@
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
 #include <cstdlib>
@@ -32,6 +33,8 @@ int main(void)
 
     glfwMakeContextCurrent(window);
     glfwSetKeyCallback(window, key_callback);
+
+    glewInit();
 
     while (!glfwWindowShouldClose(window))
     {
