@@ -11,16 +11,27 @@ set(FREEGLUT_BUILD_TESTS OFF CACHE BOOL "Disable building FreeGLUT tests")
 set(FREEGLUT_BUILD_SHARED_LIBS OFF CACHE BOOL "Disable building FreeGLUT shared libraries")
 add_subdirectory(lib/freeglut)
 
+add_subdirectory(lib/glm)
+
+add_subdirectory(lib/SOIL2)
+
+add_subdirectory(lib/glew/build/cmake)
+
 add_executable(app
     src/main.cpp
 )
 
 target_include_directories(app
+    PRIVATE lib
     PRIVATE lib/freeglut/include
+    PRIVATE lib/SOIL2/src/SOIL2
+    PRIVATE lib/glew/include
 )
 
 target_link_libraries(app
+    PRIVATE ${OPENGL_LIBRARIES}
     PRIVATE freeglut_static
-    PRIVATE ${OPENGL_gl_LIBRARY}
-    PRIVATE ${OPENGL_glu_LIBRARY}
+    PRIVATE glew_s
+    PRIVATE glm
+    PRIVATE soil2
 )
