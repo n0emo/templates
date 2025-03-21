@@ -9,7 +9,7 @@ find_package(OpenGL REQUIRED)
 add_subdirectory(lib/glfw3)
 add_subdirectory(lib/glm)
 add_subdirectory(lib/SOIL2)
-add_subdirectory(lib/glew/build/cmake)
+add_subdirectory(lib/glad)
 
 add_executable(app
     src/main.cpp
@@ -25,7 +25,7 @@ target_include_directories(app
 target_link_libraries(app
     PRIVATE ${OPENGL_LIBRARIES}
     PRIVATE glfw
-    PRIVATE glew_s
+    PRIVATE glad_1_1
     PRIVATE glm
     PRIVATE soil2
 )

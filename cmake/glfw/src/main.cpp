@@ -1,4 +1,4 @@
-#include <GL/glew.h>
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #include <cstdlib>
@@ -34,7 +34,7 @@ int main(void)
     glfwMakeContextCurrent(window);
     glfwSetKeyCallback(window, key_callback);
 
-    glewInit();
+    gladLoadGL();
 
     while (!glfwWindowShouldClose(window))
     {
